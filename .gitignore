@@ -1,0 +1,12 @@
+.gitattributes
+.venv/
+__pycache__/
+*.pyc
+*.dat
+*.png
+*.bin
+rtl_array
+.vscode
+py/
+data/
+rtl_array
