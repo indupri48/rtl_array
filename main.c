@@ -7,7 +7,14 @@
 #include <pthread.h>
 #include <string.h>
 
-int main() {
+int main(int argc, char *argv[]) {
+
+    if(argc != 4) return 1;
+
+    // Handle input arguments
+    int center_frequency = atoi(argv[1]);
+    int sampling_rate =    atoi(argv[2]) ;
+    int gain = atoi(argv[3]);
 
     // Print splash
     printf("\n");
@@ -42,9 +49,6 @@ int main() {
     pthread_cond_init(&cond, NULL); 
 
     // Initialise and configure the two dongles
-    int center_frequency = 103700000; // 103.7MHz
-    int sampling_rate = 2400000; // 2.4MHz
-    int gain = 450; // 45dB
 
     struct rtl_dongle *dongle0;
     struct rtl_dongle *dongle1;
