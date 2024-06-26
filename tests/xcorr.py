@@ -61,7 +61,7 @@ while True:
         plt.clf()
         plt.plot(c)
         
-        plt.ylim(0, 200)
+        plt.ylim(0, 400)
         plt.draw()
 
         plt.pause(0.05)

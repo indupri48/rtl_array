@@ -28,6 +28,7 @@ def xcorr(samples0, samples1):
 
 def calculate_doa(samples0, samples1):
 
+<<<<<<< HEAD
     '''
     Calculate the signal power for a sweep of angles. Using conventional beamforming
     '''
@@ -46,6 +47,47 @@ def calculate_doa(samples0, samples1):
     print(theta_scan[np.argmax(results)] * 180 / np.pi) # 19.99999999999998
 
     return theta_scan, results
+=======
+    n_receivers = 2
+    d = 0.5
+    thetas = np.linspace(-1*np.pi, np.pi, 1000)
+    
+    powers = np.array([])
+    for theta in thetas:
+        
+        w0 = 1
+        w1 = np.exp(-2j * np.pi * d * 1 * np.sin(theta))
+
+        r = samples0 * w0 + samples1 * w1
+        power = np.sum(np.abs(r) ** 2)
+        print(power)
+
+        powers = np.append(powers, power)
+
+    print(thetas[np.argmax(powers[250:750])] * 180 / np.pi)
+
+    return thetas, powers
+
+
+    # '''
+    # Calculate the signal power for a sweep of angles. Using conventional beamforming
+    # '''
+    # Nr = 2
+    # d = 0.5
+    # r = np.array([samples0, samples1])
+    # theta_scan = np.linspace(-1*np.pi, np.pi, 1000) # 1000 different thetas between -180 and +180 degrees
+    # results = []
+    # for theta_i in theta_scan:
+    #     w = np.exp(-2j * np.pi * d * np.arange(Nr) * np.sin(theta_i)) # Conventional, aka delay-and-sum, beamformer
+    #     r_weighted = w.conj().T @ r # apply our weights. remember r is 3x10000
+    #     results = np.append(results, np.var(r_weighted)) # power in signal, in dB so its easier to see small and large lobes at the same time
+    #     results -= np.max(results) # normalize
+    # print(results)
+    # # print angle that gave us the max value
+    # print(theta_scan[np.argmax(results)] * 180 / np.pi) # 19.99999999999998
+
+    # return theta_scan, results
+>>>>>>> a0be4df (WIP)
 
 HOST = "127.0.0.1"  # The server's hostname or IP address
 PORT = 8080  # The port used by the server
@@ -71,9 +113,14 @@ while True:
 
         theta, powers = calculate_doa(samples0, samples1)
 
+<<<<<<< HEAD
         powers = np.abs(powers)
         plt.clf()
         #plt.plot(theta, powers)
+=======
+        plt.clf()
+
+>>>>>>> a0be4df (WIP)
         plt.polar(theta, powers)
         plt.draw()
 
