@@ -1,0 +1,6 @@
+.gitattributes
+.venv/
+.pycache/
+*.pyc
+*.dat
+
