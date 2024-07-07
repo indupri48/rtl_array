@@ -1,6 +1,6 @@
 .gitattributes
 .venv/
-.pycache/
+__pycache__/
 *.pyc
 *.dat
 
