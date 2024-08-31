@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "mutex": "c",
+        "dongle.h": "c",
+        "rtl-sdr.h": "c",
+        "thread": "c",
+        "pthread.h": "c",
+        "iq_frame.h": "c",
+        "inet.h": "c"
+    }
+}
