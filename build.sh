@@ -1,0 +1,1 @@
+gcc -o rtl_array c/rtl_array.c -lrtlsdr
